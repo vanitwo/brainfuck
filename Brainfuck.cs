@@ -19,7 +19,7 @@ public class Brainfuck
 	{
 		var vm = new VirtualMachine(program, memorySize);
 		BrainfuckBasicCommands.RegisterTo(vm, read, write);
-		//BrainfuckLoopCommands.RegisterTo(vm);
+		BrainfuckLoopCommands.RegisterTo(vm);
 		vm.Run();
 	}
 }

@@ -9,9 +9,9 @@ namespace func.brainfuck
 		public int InstructionPointer { get; set; }
 		public byte[] Memory { get; }
 		public int MemoryPointer { get; set; }
-		public Dictionary<char, Action<IVirtualMachine>> Commands = new();
+		public Dictionary<char, Action<IVirtualMachine>> Commands = new();		
 
-		public VirtualMachine(string program, int memorySize)
+        public VirtualMachine(string program, int memorySize)
 		{
 			Instructions = program;
 			Memory = new byte[memorySize];			
@@ -25,6 +25,6 @@ namespace func.brainfuck
 			for (; InstructionPointer < Instructions.Length; InstructionPointer++)            
                 if (Commands.TryGetValue(Instructions[InstructionPointer], out var action))
                     action(this);            
-        }        
+        } 		
     }
 }
